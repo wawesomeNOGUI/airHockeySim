@@ -232,8 +232,8 @@ function render() {
 
     // draw goals
     ctx.fillStyle = "black";
-    ctx.fillRect(canvas.width/2-30, 5, 60, -5);
-    ctx.fillRect(canvas.width/2-30, canvas.height-5, 60, 5);
+    ctx.fillRect(canvas.width/2-60, 5, 120, -5);
+    ctx.fillRect(canvas.width/2-60, canvas.height-5, 120, 5);
 }
 
 var aiScore = 0;
@@ -260,8 +260,8 @@ function update() {
     }
 
     // check for puck score
-    if (objs[0].x > canvas.width/2-30 + 2*objs[0].r) {
-        if (objs[0].x < canvas.width/2-30 + 60 - objs[0].r) {
+    if (objs[0].x > canvas.width/2-60 + 2*objs[0].r) {
+        if (objs[0].x < canvas.width/2-60 + 120 - objs[0].r) {
             // check for bottom or top goal
             if (objs[0].y > canvas.height - 2*objs[0].r) {
                 objs[0].x = canvas.width / 2;
