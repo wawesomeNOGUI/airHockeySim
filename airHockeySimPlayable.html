@@ -7,6 +7,8 @@
             AI:     0
             Player: 0
         </div>
+
+        <button onclick="toggleTraces();">Toggle Traces</button>
     </center>
 <script>
 var canvas = document.getElementById("myCanvas");
@@ -170,12 +172,14 @@ function drawRay(objIndex, steps) {
         for (var j = 0; j < tmpObjs.length; j++) {
             var hitLocation = ballUpdate(tmpObjs[j], tmpObjs);
 
-            if (hitLocation) {
-                ctx.fillStyle = "red";
-                // ctx.fillRect(tmpObjs[objIndex].x, tmpObjs[objIndex].y, 5, 5);
-            } else if (j == objIndex) {
-                ctx.fillStyle = "black";
-                // ctx.fillRect(tmpObjs[objIndex].x, tmpObjs[objIndex].y, 2, 2);
+            if (tracesOn) {
+                if (hitLocation) {
+                    ctx.fillStyle = "red";
+                    ctx.fillRect(tmpObjs[objIndex].x, tmpObjs[objIndex].y, 5, 5);
+                } else if (j == objIndex) {
+                    ctx.fillStyle = "black";
+                    ctx.fillRect(tmpObjs[objIndex].x, tmpObjs[objIndex].y, 2, 2);
+                }
             }
         }
 
@@ -200,6 +204,11 @@ function drawRay(objIndex, steps) {
             }
         }
     }
+}
+
+var tracesOn = false;
+function toggleTraces() {
+    tracesOn = !tracesOn;
 }
 
 function render() {
